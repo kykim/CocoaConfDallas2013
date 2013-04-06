@@ -1,0 +1,552 @@
+2013-04-05 09:21:37.400
+  +[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](549): 
+  CoreData: Ubiquity:  
+    Path:    ... is a ubiquity root url.
+    Matches: ...
+
+2013-04-05 09:21:38.675 cocoaconfdc[1267:1107] 
+  __53-[PFUbiquitySetupAssistant validateOptionsWithError:]_block_invoke_0(256): 
+  CoreData: Ubiquity:  
+  Coordinated read finished for ubiquity root url: .../
+
+2013-04-05 09:21:39.195 cocoaconfdc[1267:4303] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: .../76S55YBJ36~c...c/TransactionLogs
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../76S55YBJ36~c...c/TransactionLogs
+
+2013-04-05 09:21:39.198 cocoaconfdc[1267:4303] 
+  +[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](570): 
+  CoreData: Ubiquity:  
+    Truncated path: 76S55YBJ36~c...c/TransactionLogs is a ubiquity root url.
+    Matches:         76S55YBJ36~c...c/TransactionLogs
+
+2013-04-05 09:21:45.632 cocoaconfdc[1267:1107] 
+  -[PFUbiquityPeerReceipt loadFileFromLocation:error:](116): 
+  CoreData: Ubiquity:  Successfully loaded receipt: <PFUbiquityPeerReceipt: 0x1f896770>(0)
+  permanentLocation: <PFUbiquityLocation: 0x1f8a3850>: ...
+   safeLocation: <PFUbiquityLocation: 0x1f8a40e0>: ...
+   currentLocation: <PFUbiquityLocation: 0x1f8a3850>: ...
+   kv: <PFUbiquityKnowledgeVector: 0x1f8a4d30> (mobile.<UUID>:11)
+
+2013-04-05 09:21:45.667 cocoaconfdc[1267:1107] 
+  CoreData: annotation: Connecting to sqlite database file at ".../metadata.store"
+
+  CoreData: annotation: creating schema.
+  CoreData: sql: pragma page_size=4096
+  CoreData: sql: pragma auto_vacuum=2
+  CoreData: sql: BEGIN EXCLUSIVE
+  CoreData: sql: SELECT TBL_NAME FROM SQLITE_MASTER WHERE TBL_NAME = 'Z_METADATA'
+  CoreData: sql: CREATE TABLE ZPFUBIQUITYPEER 
+                    ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, 
+                      ZPEERCODE VARCHAR, ZPEERKEY VARCHAR ) 
+  CoreData: sql: CREATE TABLE ZPFUBIQUITYPEERRANGE 
+                    ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, 
+                      ZEND INTEGER, ZPEEREND INTEGER, ZPEERSTART INTEGER, 
+                      ZSTART INTEGER, ZPEER INTEGER, ZSTOREMETADATA INTEGER, 
+                      ZPEERENTITYNAME VARCHAR ) 
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYPEERRANGE_ZPEER_INDEX ON ZPFUBIQUITYPEERRANGE (ZPEER)
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYPEERRANGE_ZSTOREMETADATA_INDEX ON ZPFUBIQUITYPEERRANGE (ZSTOREMETADATA)
+  CoreData: sql: CREATE TABLE ZPFUBIQUITYPEERSTATE 
+                    ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, 
+		      ZTRANSACTIONNUMBER INTEGER, ZPEER INTEGER, ZSTOREMETADATA INTEGER, 
+		      ZLASTPROCESSEDTRANSACTIONLOGURL VARCHAR, ZSTORENAME VARCHAR ) 
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYPEERSTATE_ZPEER_INDEX ON ZPFUBIQUITYPEERSTATE (ZPEER)
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYPEERSTATE_ZSTOREMETADATA_INDEX ON ZPFUBIQUITYPEERSTATE (ZSTOREMETADATA)
+  CoreData: sql: CREATE TABLE ZPFUBIQUITYREMOTEPEERSTATE 
+                    ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, 
+		      ZTRANSACTIONNUMBER INTEGER, ZPEER INTEGER, ZPEERID VARCHAR, 
+ 		      ZSTORENAME VARCHAR ) 
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYREMOTEPEERSTATE_ZPEER_INDEX ON ZPFUBIQUITYREMOTEPEERSTATE (ZPEER)
+  CoreData: sql: CREATE TABLE ZPFUBIQUITYSTOREMETADATA 
+                    ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, 
+		      ZMODELVERSIONHASHSTRING VARCHAR, ZSTOREIDENTIFIER VARCHAR, 
+		      ZSTORETYPE VARCHAR, ZSTOREURLSTRING VARCHAR, ZUBIQUITYNAME VARCHAR, 
+		      ZUBIQUITYRELATIVEPATH VARCHAR, ZUBIQUITYROOTURLSTRING VARCHAR, 
+		      ZSTOREOPTIONSBINARYPLISTDATA BLOB ) 
+  CoreData: sql: CREATE TABLE ZPFUBIQUITYTRANSACTIONENTRY 
+                    ( Z_PK INTEGER PRIMARY KEY, Z_ENT INTEGER, Z_OPT INTEGER, 
+		      ZTRANSACTIONNUMBER INTEGER, ZTRANSACTIONTYPENUM INTEGER, 
+		      ZACTINGPEER INTEGER, ZSTOREMETADATA INTEGER, 
+		      ZTRANSACTIONDATE TIMESTAMP, ZGLOBALIDSTR VARCHAR, 
+		      ZKNOWLEDGEVECTORSTRING VARCHAR, ZLOCALIDSTR VARCHAR, 
+		      ZTRANSACTIONLOGFILENAME VARCHAR ) 
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYTRANSACTIONENTRY_ZACTINGPEER_INDEX 
+                    ON ZPFUBIQUITYTRANSACTIONENTRY (ZACTINGPEER)
+  CoreData: sql: CREATE INDEX ZPFUBIQUITYTRANSACTIONENTRY_ZSTOREMETADATA_INDEX 
+                    ON ZPFUBIQUITYTRANSACTIONENTRY (ZSTOREMETADATA)
+  CoreData: annotation: Creating primary key table.
+  CoreData: sql: CREATE TABLE Z_PRIMARYKEY 
+                    (Z_ENT INTEGER PRIMARY KEY, Z_NAME VARCHAR, 
+		     Z_SUPER INTEGER, Z_MAX INTEGER)
+  CoreData: sql: INSERT INTO Z_PRIMARYKEY(Z_ENT, Z_NAME, Z_SUPER, Z_MAX) 
+                     VALUES(1, 'PFUbiquityPeer', 0, 0)
+  CoreData: sql: INSERT INTO Z_PRIMARYKEY(Z_ENT, Z_NAME, Z_SUPER, Z_MAX) 
+                     VALUES(2, 'PFUbiquityPeerRange', 0, 0)
+  CoreData: sql: INSERT INTO Z_PRIMARYKEY(Z_ENT, Z_NAME, Z_SUPER, Z_MAX) 
+                     VALUES(3, 'PFUbiquityPeerState', 0, 0)
+  CoreData: sql: INSERT INTO Z_PRIMARYKEY(Z_ENT, Z_NAME, Z_SUPER, Z_MAX) 
+                     VALUES(4, 'PFUbiquityRemotePeerState', 0, 0)
+  CoreData: sql: INSERT INTO Z_PRIMARYKEY(Z_ENT, Z_NAME, Z_SUPER, Z_MAX) 
+                     VALUES(5, 'PFUbiquityStoreMetadata', 0, 0)
+  CoreData: sql: INSERT INTO Z_PRIMARYKEY(Z_ENT, Z_NAME, Z_SUPER, Z_MAX) 
+                     VALUES(6, 'PFUbiquityTransactionEntry', 0, 0)
+  CoreData: sql: CREATE TABLE Z_METADATA 
+                     (Z_VERSION INTEGER PRIMARY KEY, Z_UUID VARCHAR(255), 
+		      Z_PLIST BLOB)
+  CoreData: sql: SELECT TBL_NAME FROM SQLITE_MASTER WHERE TBL_NAME = 'Z_METADATA'
+  CoreData: sql: DELETE FROM Z_METADATA WHERE Z_VERSION = ?
+  CoreData: sql: INSERT INTO Z_METADATA (Z_VERSION, Z_UUID, Z_PLIST) VALUES (?, ?, ?)
+  CoreData: sql: COMMIT
+  CoreData: sql: pragma journal_mode=WAL
+  CoreData: sql: pragma cache_size=200
+  CoreData: sql: SELECT Z_VERSION, Z_UUID, Z_PLIST FROM Z_METADATA
+
+2013-04-05 09:21:45.772 cocoaconfdc[1267:1107] 
+  -[_PFUbiquityStack initWithMetadataEntry:](66): 
+  CoreData: Ubiquity:  Initializing stack(<_PFUbiquityStack: 0x1f87beb0>) 
+                       with metadata entry: <PFUbiquityMetadataFactoryEntry: 0x1eddce50>
+   metadataStoreFileLocation: <PFUbiquityLocation: 0x1eddccc0>: .../metadata.store
+   psc: <NSPersistentStoreCoordinator: 0x1f8a6330>
+   store: <NSSQLCore: 0x1eddd9a0> (URL: ...>/metadata.store)
+   filePresenter: <PFUbiquityMetadataFactoryFilePresenter: 0x1eddd0a0>
+
+2013-04-05 09:21:45.776 cocoaconfdc[1267:1107] 
+  -[_PFUbiquityStack initWithMetadataEntry:](80): 
+  CoreData: Ubiquity:  Setting up metadataMOC for stack: <_PFUbiquityStack: 0x1f87beb0>: 
+  localPeerID: mobile.<UUID>
+  ubiquityRootURL: <PFUbiquityLocation: 0x1f8942f0>: ...
+  metadataContainerURL: <PFUbiquityLocation: 0x1eddccc0>: ...>/metadata.store
+
+2013-04-05 09:21:45.780 cocoaconfdc[1267:1107] 
+  CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, t0.ZMODELVERSIONHASHSTRING, 
+                        t0.ZSTOREIDENTIFIER, t0.ZSTOREOPTIONSBINARYPLISTDATA, 
+			t0.ZSTORETYPE, t0.ZSTOREURLSTRING, t0.ZUBIQUITYNAME, 
+			t0.ZUBIQUITYRELATIVEPATH, t0.ZUBIQUITYROOTURLSTRING 
+                 FROM ZPFUBIQUITYSTOREMETADATA t0 WHERE  t0.ZUBIQUITYNAME = ? 
+  CoreData: annotation: sql connection fetch time: 0.0021s
+  CoreData: annotation: total fetch execution time: 0.0056s for 0 rows.
+
+2013-04-05 09:21:46.532 cocoaconfdc[1267:510b] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+
+Got change notification for url: .../receipt.0.cdt
+
+2013-04-05 09:21:46.533 cocoaconfdc[1267:4907] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../metadata.store-wal
+
+2013-04-05 09:21:46.535 cocoaconfdc[1267:510b] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../metadata.store
+
+2013-04-05 09:21:46.536 cocoaconfdc[1267:4907] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../metadata.store-shm
+
+2013-04-05 09:21:46.536 cocoaconfdc[1267:510b] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../metadata.nosync
+
+2013-04-05 09:21:46.537 cocoaconfdc[1267:450f] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../metadata.store-journal
+
+2013-04-05 09:21:46.538 cocoaconfdc[1267:4b07] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+  ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+  localPeerID: mobile.<UUID>
+  Got change notification for url: .../mobile.<UUID>
+
+2013-04-05 09:21:58.168 cocoaconfdc[1267:1107] 
+  CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, t0.ZMODELVERSIONHASHSTRING, 
+                        t0.ZSTOREIDENTIFIER, t0.ZSTOREOPTIONSBINARYPLISTDATA, 
+          		t0.ZSTORETYPE, t0.ZSTOREURLSTRING, t0.ZUBIQUITYNAME, 
+			t0.ZUBIQUITYRELATIVEPATH, t0.ZUBIQUITYROOTURLSTRING 
+                 FROM ZPFUBIQUITYSTOREMETADATA t0 WHERE  t0.ZUBIQUITYNAME = ? 
+  CoreData: annotation: sql connection fetch time: 0.0024s
+  CoreData: annotation: total fetch execution time: 0.0037s for 0 rows.
+
+2013-04-05 09:21:58.181 cocoaconfdc[1267:1107] 
+  CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, t0.ZLASTPROCESSEDTRANSACTIONLOGURL, 
+                        t0.ZSTORENAME, t0.ZTRANSACTIONNUMBER, t0.ZPEER, t0.ZSTOREMETADATA 
+		 FROM ZPFUBIQUITYPEERSTATE t0 
+                 JOIN ZPFUBIQUITYPEER t1 ON t0.ZPEER = t1.Z_PK 
+                 WHERE ( t1.ZPEERKEY = ? AND  t0.ZSTORENAME = ?) 
+  CoreData: annotation: sql connection fetch time: 0.0027s
+  CoreData: annotation: total fetch execution time: 0.0041s for 0 rows.
+
+2013-04-05 09:21:58.189 cocoaconfdc[1267:1107] 
+  CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, t0.ZPEERCODE, t0.ZPEERKEY 
+                 FROM ZPFUBIQUITYPEER t0 WHERE  t0.ZPEERKEY = ? 
+  CoreData: annotation: sql connection fetch time: 0.0021s
+  CoreData: annotation: total fetch execution time: 0.0032s for 0 rows.
+
+2013-04-05 09:21:58.225 cocoaconfdc[1267:1107] 
+  -[PFUbiquityBaseline clearOutStagingLocationWithError:](201): 
+  CoreData: Ubiquity:  <PFUbiquityBaseline: 0x1ed85cf0>(0)
+  permanentLocation: <PFUbiquityLocation: 0x1edb90b0>: ...
+  safeLocation: <PFUbiquityLocation: 0x1ede08d0>: ...
+  currentLocation: <PFUbiquityLocation: 0x1edb90b0>: .../baseline.zip
+  storeName: 76S55YBJ36~c...c
+  modelVersionHash: <BUCKET>
+  baselineArchiveLocation: <PFUbiquityLocation: 0x1edb90b0>: .../baseline.zip
+  Successfully created staging directory: .../staging.nosync
+
+2013-04-05 09:21:58.558 cocoaconfdc[1267:1107] 
+  -[PFUbiquityBaseline clearOutStagingLocationWithError:](191): 
+  CoreData: Ubiquity:  <PFUbiquityBaseline: 0x1ed85cf0>(0)
+  permanentLocation: <PFUbiquityLocation: 0x1edb90b0>: ...
+  safeLocation: <PFUbiquityLocation: 0x1ede08d0>: ...
+   currentLocation: <PFUbiquityLocation: 0x1edb90b0>: ...
+   storeName: 76S55YBJ36~c...c
+   modelVersionHash: <BUCKET>
+   baselineArchiveLocation: <PFUbiquityLocation: 0x1edb90b0>: .../baseline.zip
+ Successfully removed contents of staging area.
+
+2013-04-05 09:21:58.563 cocoaconfdc[1267:1107] 
+  -[PFUbiquityBaseline clearOutStagingLocationWithError:](201): 
+  CoreData: Ubiquity:  <PFUbiquityBaseline: 0x1ed85cf0>(0)
+  permanentLocation: <PFUbiquityLocation: 0x1edb90b0>: ...
+  safeLocation: <PFUbiquityLocation: 0x1ede08d0>: ...
+  currentLocation: <PFUbiquityLocation: 0x1edb90b0>: ...
+  storeName: 76S55YBJ36~c...c
+  modelVersionHash: <BUCKET>
+  baselineArchiveLocation: <PFUbiquityLocation: 0x1edb90b0>: ...
+  Successfully created staging directory: .../staging.nosync
+
+2013-04-05 09:21:58.583 cocoaconfdc[1267:1107] 
+  CoreData: annotation: Connecting to sqlite database file at ".../cocoaconfdc.sqlite"
+  CoreData: sql: pragma cache_size=200
+  CoreData: sql: CREATE TABLE IF NOT EXISTS Y_UBMETA 
+       (Y_PK INTEGER PRIMARY KEY ASC, YPEERID VARCHAR UNIQUE, YTRANSACTIONNUMBER INTEGER)
+  CoreData: sql: CREATE TABLE IF NOT EXISTS Y_UBRANGE 
+       (Y_PK INTEGER PRIMARY_KEY ASC, YPEERID VARCHAR, YENTITYNAME VARCHAR, 
+        YRANGESTART INTEGER, YRANGEEND INTEGER, YPEERSTART INTEGER, YPEEREND INTEGER)
+  CoreData: sql: CREATE TABLE IF NOT EXISTS Y_UBKVS 
+       (Y_PK INTEGER PRIMARY KEY ASC, YKEY VARCHAR UNIQUE, YVALUE VARCHAR)
+  CoreData: sql: SELECT Z_VERSION, Z_UUID, Z_PLIST FROM Z_METADATA
+
+2013-04-05 09:21:58.601 cocoaconfdc[1267:1107] 
+  +[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](549): 
+  CoreData: Ubiquity:  
+    Path:    .../76S55YBJ36~c...c/TransactionLogs is a ubiquity root url.
+    Matches: .../76S55YBJ36~c...c/TransactionLogs
+
+2013-04-05 09:21:58.607 cocoaconfdc[1267:1107] 
+  -[PFUbiquityStoreMetadataMedic recoverMetadataWithError:](77): 
+  CoreData: Ubiquity:  Beginning metadata recovery for store: <NSSQLCore: 0x1f8ad170> (URL: .../cocoaconfdc.sqlite)
+
+2013-04-05 09:21:58.608 cocoaconfdc[1267:1107] 
+  -[PFUbiquityStoreMetadataMedic recoverMetadataWithError:](91): 
+  CoreData: Ubiquity:  Metadata recovery for store: <NSSQLCore: 0x1f8ad170> (URL: .../cocoaconfdc.sqlite)
+  Creating new store metadata.
+
+2013-04-05 09:21:58.610 cocoaconfdc[1267:1107] 
+  -[_PFUbiquityStack initWithMetadataEntry:](66): 
+  CoreData: Ubiquity:  Initializing stack(<_PFUbiquityStack: 0x1ed84cf0>) 
+                       with metadata entry: <PFUbiquityMetadataFactoryEntry: 0x1eddce50>
+ metadataStoreFileLocation: <PFUbiquityLocation: 0x1eddccc0>: .../metadata.store
+ psc: <NSPersistentStoreCoordinator: 0x1f8a6330>
+ store: <NSSQLCore: 0x1eddd9a0> (URL: .../metadata.store)
+ filePresenter: <PFUbiquityMetadataFactoryFilePresenter: 0x1eddd0a0>
+
+2013-04-05 09:21:58.612 cocoaconfdc[1267:1107] 
+  -[_PFUbiquityStack initWithMetadataEntry:](80): 
+  CoreData: Ubiquity:  Setting up metadataMOC for stack: <_PFUbiquityStack: 0x1ed84cf0>: 
+  localPeerID: mobile.<UUID>
+  ubiquityRootURL: <PFUbiquityLocation: 0x1f8942f0>: ...
+  metadataContainerURL: <PFUbiquityLocation: 0x1eddccc0>: .../metadata.store
+
+2013-04-05 09:21:58.617 cocoaconfdc[1267:1107] 
+  CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, t0.ZMODELVERSIONHASHSTRING, 
+                        t0.ZSTOREIDENTIFIER, t0.ZSTOREOPTIONSBINARYPLISTDATA, 
+			t0.ZSTORETYPE, t0.ZSTOREURLSTRING, t0.ZUBIQUITYNAME, 
+			t0.ZUBIQUITYRELATIVEPATH, t0.ZUBIQUITYROOTURLSTRING 
+	         FROM ZPFUBIQUITYSTOREMETADATA t0 
+  CoreData: annotation: sql connection fetch time: 0.0020s
+  CoreData: annotation: total fetch execution time: 0.0042s for 0 rows.
+
+2013-04-05 09:21:58.634 cocoaconfdc[1267:1107] 
+  -[PFUbiquityStoreMetadataMedic recoverMetadataWithError:](116): 
+  CoreData: Ubiquity:  <PFUbiquityStoreMetadataMedic: 0x1ed88390>
+  Metadata recovery for store: <NSSQLCore: 0x1f8ad170> (URL: .../cocoaconfdc.sqlite)
+  Created new store metadata: <PFUbiquityStoreMetadata: 0x1ede8d10> 
+    (entity: PFUbiquityStoreMetadata; 
+     id: 0x1ede9fd0 <x-coredata:///PFUbiquityStoreMetadata/tC1598FF4-534D-4460-AD25-9B7F371C074C5> ; 
+     data: {
+       modelVersionHashString = "<BUCKET>";
+       peerStates =     ();
+       primaryKeyRanges =     ();
+       storeIdentifier = "17357706-617F-4132-8392-5A1ECF4B34D3";
+       storeOptionsBinaryPlistData = <62706c69 73743030 d4010203 04050831 32542474 6f705824 6f626a65 63747358 24766572 73696f6e 59246172 63686976 6572>;
+       storeType = SQLite;
+       storeURLString = ".../76S55YBJ36~c...c/Data.nosync/cocoaconfdc.sqlite";
+       transactionEntries =     ();
+       ubiquityName = "76S55YBJ36~c...c";
+       ubiquityRelativePath = nil;
+       ubiquityRootURLString = ".../76S55YBJ36~c...c/TransactionLogs/";
+    })
+  Moving on to recreating the peer ranges.
+
+2013-04-05 09:21:58.638 cocoaconfdc[1267:1107] 
+  -[PFUbiquityStoreMetadataMedic recoverMetadataWithError:](118): 
+  CoreData: Ubiquity:  <PFUbiquityStoreMetadataMedic: 0x1ed88390>
+  Metadata recovery for store: <NSSQLCore: 0x1f8ad170> (URL: .../cocoaconfdc.sqlite)
+  Finished creating new peer ranges, moving to knowledge vector, peer states, and transaction entries.
+
+2013-04-05 09:21:58.642 cocoaconfdc[1267:1107] 
+  CoreData: sql: select YPEERID, YTRANSACTIONNUMBER, Y_PK from Y_UBMETA
+
+2013-04-05 09:21:58.644 cocoaconfdc[1267:1107] -[PFUbiquityStoreMetadataMedic recoverMetadataWithError:](121): 
+  CoreData: Ubiquity:  <PFUbiquityStoreMetadataMedic: 0x1ed88390>
+  Metadata recovery for store: <NSSQLCore: 0x1f8ad170> (URL: .../cocoaconfdc.sqlite)
+  Fetched knowledge vector: {
+    "mobile.<UUID>" =     {
+        YPEERID = "mobile.<UUID>";
+        YTRANSACTIONNUMBER = 26;
+        "Y_PK" = 1;
+    };
+  }
+
+2013-04-05 09:21:58.647 cocoaconfdc[1267:1107] 
+  CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, t0.ZLASTPROCESSEDTRANSACTIONLOGURL, 
+                        t0.ZSTORENAME, t0.ZTRANSACTIONNUMBER, t0.ZPEER, 
+			t0.ZSTOREMETADATA 
+	         FROM ZPFUBIQUITYPEERSTATE t0 
+		 JOIN ZPFUBIQUITYPEER t1 ON t0.ZPEER = t1.Z_PK 
+		 WHERE ( t1.ZPEERKEY = ? AND  t0.ZSTORENAME = ?) 
+  CoreData:CoreData: annotation: sql connection fetch time: 0.0016s
+  CoreData:CoreData: annotation: total fetch execution time: 0.0028s for 0 rows.
+  CoreData:CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, 
+                                 t0.ZPEERCODE, t0.ZPEERKEY 
+		          FROM ZPFUBIQUITYPEER t0 WHERE  t0.ZPEERKEY = ? 
+  CoreData:CoreData: annotation: sql connection fetch time: 0.0016s
+  CoreData:CoreData: annotation: total fetch execution time: 0.0028s for 0 rows.
+
+2013-04-05 09:21:59.039 cocoaconfdc[1267:373b] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.006
+
+2013-04-05 09:21:59.040 cocoaconfdc[1267:4913] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/baseline.gcmodel
+
+2013-04-05 09:21:59.041 cocoaconfdc[1267:373b] 
+  +[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+  CoreData: Ubiquity:  Ignoring private file: /var/mobile/Library/Mobile Documents/76S55YBJ36~c...c/TransactionLogs/.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.006
+
+2013-04-05 09:21:59.043 cocoaconfdc[1267:4a0b] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../.baseline/76S55YBJ36~c...c/<BUCKET>/staging.nosync/.dat04f3.003
+
+2013-04-05 09:21:59.043 cocoaconfdc[1267:4607] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c
+
+2013-04-05 09:21:59.044 cocoaconfdc[1267:5303] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/baseline.model
+
+2013-04-05 09:21:59.044 cocoaconfdc[1267:4513] 
+  -[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../.baseline/76S55YBJ36~c...c/<BUCKET>/staging.nosync
+
+2013-04-05 09:21:59.045 cocoaconfdc[1267:5503] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/76S55YBJ36~c...c/<BUCKET>/staging.nosync/cocoaconfdc.sqlite
+
+2013-04-05 09:21:59.047 cocoaconfdc[1267:5403] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.005
+
+2013-04-05 09:21:59.047 cocoaconfdc[1267:5703] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.004
+
+2013-04-05 09:21:59.048 cocoaconfdc[1267:5803] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>
+
+2013-04-05 09:21:59.049 cocoaconfdc[1267:5603] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.002
+
+2013-04-05 09:21:59.052 cocoaconfdc[1267:4913] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync
+
+2013-04-05 09:21:59.052 cocoaconfdc[1267:5903] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/76S55YBJ36~c...c/<BUCKET>/baseline.zip
+
+2013-04-05 09:21:59.057 cocoaconfdc[1267:5b03] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.001
+
+2013-04-05 09:21:59.060 cocoaconfdc[1267:5c03] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/baseline.meta
+
+2013-04-05 09:21:59.061 cocoaconfdc[1267:373b] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+  Got change notification for url: .../.baseline/current.nosync/76S55YBJ36~c...c/<BUCKET>/.dat04f3.000
+
+2013-04-05 09:21:59.067 cocoaconfdc[1267:4a0b] 
+  CoreData:+[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+  CoreData: Ubiquity:  Ignoring private file: .../staging.nosync/.dat04f3.003
+
+2013-04-05 09:21:59.084 cocoaconfdc[1267:5403] 
+  CoreData:+[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+  CoreData: Ubiquity:  Ignoring private file: .../<BUCKET>/.dat04f3.005
+
+2013-04-05 09:21:59.084 cocoaconfdc[1267:5703] 
+CoreData:+[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+CoreData: Ubiquity:  Ignoring private file: .../<BUCKET>/.dat04f3.004
+
+2013-04-05 09:21:59.091 cocoaconfdc[1267:5603] 
+CoreData:+[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+CoreData: Ubiquity:  Ignoring private file: .../<BUCKET>/.dat04f3.002
+
+2013-04-05 09:21:59.106 cocoaconfdc[1267:373b] 
+CoreData:+[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+CoreData: Ubiquity:  Ignoring private file: .../<BUCKET>/.dat04f3.000
+
+2013-04-05 09:21:59.100 cocoaconfdc[1267:5b03] 
+CoreData:+[PFUbiquityLocation createUbiquityLocationForPath:withUbiquityRootPath:](833): 
+CoreData: Ubiquity:  Ignoring private file: .../<BUCKET>/.dat04f3.001
+
+2013-04-05 09:22:03.773 cocoaconfdc[1267:373b] 
+CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../B3B3F50A-E609-4F6D-9553-C201464F347D.1.cdt
+
+2013-04-05 09:22:50.518 cocoaconfdc[1267:1107] 
+CoreData:-[PFUbiquityFileCoordinator coordinateReadingItemAtLocation:options:retryOnError:error:byAccessor:](95): 
+CoreData: Ubiquity:  <PFUbiquityFileCoordinator: 0x1f8ba150>
+Coordinated read returned an error: Error Domain=NSCocoaErrorDomain Code=256 "The operation couldn’t be completed. (Cocoa error 256 - The item failed to download.)" UserInfo=0x1f8bd080 {NSURL=.../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt, NSUnderlyingError=0x1f8baeb0 "The operation couldn’t be completed. (UBErrorDomain error 0.)", NSDescription=The item failed to download.}
+userInfo: {
+CoreData:NSDescription = "The item failed to download.";
+CoreData:NSURL = ".../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt";
+CoreData:NSUnderlyingError = "Error Domain=UBErrorDomain Code=0 \"The operation couldn\U2019t be completed. (UBErrorDomain error 0.)\"";
+}
+ Retrying (0).
+
+2013-04-05 09:23:01.207 cocoaconfdc[1267:1107] 
+CoreData:-[PFUbiquityFileCoordinator coordinateReadingItemAtLocation:options:retryOnError:error:byAccessor:](95): 
+CoreData: Ubiquity:  <PFUbiquityFileCoordinator: 0x1f8ba150>
+Coordinated read returned an error: Error Domain=NSCocoaErrorDomain Code=256 "The operation couldn’t be completed. (Cocoa error 256 - The item failed to download.)" UserInfo=0x1f8bd080 {NSURL=.../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt, NSUnderlyingError=0x1f8baeb0 "The operation couldn’t be completed. (UBErrorDomain error 0.)", NSDescription=The item failed to download.}
+userInfo: {
+CoreData:NSDescription = "The item failed to download.";
+CoreData:NSURL = ".../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt";
+CoreData:NSUnderlyingError = "Error Domain=UBErrorDomain Code=0 \"The operation couldn\U2019t be completed. (UBErrorDomain error 0.)\"";
+}
+ Retrying (1).
+
+2013-04-05 09:23:02.194 cocoaconfdc[1267:3d53] 
+  CoreData:-[PFUbiquityFilePresenter presentedSubitemDidChangeAtURL:](98): 
+  CoreData: Ubiquity:  <PFUbiquityFilePresenter: 0x1edb84d0>
+	   ubiquityRootLocation: <PFUbiquityLocation: 0x1f8942f0>: ...
+	   localPeerID: mobile.<UUID>
+
+Got change notification for url: .../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt
+
+2013-04-05 09:24:16.228 cocoaconfdc[1267:1107] 
+  CoreData:-[PFUbiquityFileCoordinator coordinateReadingItemAtLocation:options:retryOnError:error:byAccessor:](95): 
+  CoreData: Ubiquity:  <PFUbiquityFileCoordinator: 0x1f8ba150>
+  Coordinated read returned an error: Error Domain=NSCocoaErrorDomain Code=256 "The operation couldn’t be completed. (Cocoa error 256 - The item failed to download.)" UserInfo=0x1f8bd080 {NSURL=.../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt, NSUnderlyingError=0x1f8baeb0 "The operation couldn’t be completed. (UBErrorDomain error 0.)", NSDescription=The item failed to download.}
+userInfo: {
+  CoreData:NSDescription = "The item failed to download.";
+  CoreData:NSURL = ".../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt";
+  CoreData:NSUnderlyingError = "Error Domain=UBErrorDomain Code=0 \"The operation couldn\U2019t be completed. (UBErrorDomain error 0.)\"";
+}
+ Retrying (2).
+
+2013-04-05 09:24:16.245 cocoaconfdc[1267:1107] 
+  CoreData: CoreData: sql: SELECT 0, t0.Z_PK, t0.Z_OPT, 
+                                  t0.ZPEERCODE, t0.ZPEERKEY 
+			   FROM ZPFUBIQUITYPEER t0 WHERE  t0.ZPEERKEY = ? 
+  CoreData: annotation: sql connection fetch time: 0.0015s
+  CoreData: annotation: total fetch execution time: 0.0025s for 0 rows.
+  CoreData: sql: SELECT YPEERID, YENTITYNAME, YRANGESTART, YRANGEEND, YPEERSTART, YPEEREND FROM Y_UBRANGE
+ -[PFUbiquityStoreMetadataMedic recoverTransactionLogMetadataWithImportContext:error:](274): 
+  CoreData: Ubiquity:  Successfully rebuilt metadata for log: <PFUbiquityTransactionLog: 0x1eda4bc0>
+    transactionLogLocation: <PFUbiquityLocation: 0x1ed7a150>: .../E5D7F32C-8803-431A-9341-B31F3522C084.1.cdt
+    transactionNumber: 26
